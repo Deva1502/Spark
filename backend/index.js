@@ -2,9 +2,23 @@ import express from "express"
 const app = express()
 import dotenv from "dotenv"
 import connectDB from "./config/db.js"
+import cookieParser from "cookie-parser"
+import cors from "cors"
+import authRouter from "./route/auth.route.js"
+import userRouter from "./route/user.routes.js"
 dotenv.config()
+app.use(express.json())
 
 
+//middleware
+app.use(cors({
+    origin:"http://localhost:5173",
+    withCredentials:true
+}))
+app.use(cookieParser());
+
+app.use("/api/auth", authRouter)
+app.use("/api/user", userRouter)
 
 app.get("/", (req, res) => {
     res.send("Hello World")
