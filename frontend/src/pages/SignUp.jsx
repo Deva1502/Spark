@@ -6,6 +6,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { serverUrl } from "../App.jsx";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../redux/userSlice.js";
 
 const SignUp = () => {
   const [clicked, setClicked] = useState({
@@ -22,6 +24,7 @@ const SignUp = () => {
   const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(false);
   // const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSignUp = async () => {
     setLoading(true);
@@ -31,7 +34,9 @@ const SignUp = () => {
         { name, userName, email, password },
         { withCredentials: true }
       );
-      console.log(result.data);
+      dispatch(setUserData(result.data))
+      // console.log(result.data);
+
       setLoading(false);
     } catch (error) {
       console.log(error);
