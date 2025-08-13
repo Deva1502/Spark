@@ -1,14 +1,16 @@
 import axios from 'axios';
-import React, { useEffect } from 'react'
+import React, { use, useEffect } from 'react'
 import { serverUrl } from '../App';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
 
 const getCurrentUser = () => {
     const dispatch = useDispatch();
+    const {userData} = useSelector(state=>state.user)
   useEffect(()=>{
     const fetchUser = async () => {
       try {
+        // if(!userData) return null
         const response = await axios.get(`${serverUrl}/api/user/current`,{withCredentials:true});
         // const data = await response.json();
         // console.log(data);
@@ -19,7 +21,7 @@ const getCurrentUser = () => {
 
     }
     fetchUser();
-  },[])
+  },[userData])
 }
 
 export default getCurrentUser

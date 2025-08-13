@@ -8,6 +8,7 @@ import axios from "axios";
 import { serverUrl } from "../App.jsx";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../redux/userSlice.js";
+import { ClipLoader } from "react-spinners";
 
 const SignUp = () => {
   const [clicked, setClicked] = useState({

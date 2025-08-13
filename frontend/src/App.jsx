@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import ForgotPassword from './pages/ForgotPassword'
 import { useSelector } from 'react-redux'
 import getCurrentUser from './hooks/getCurrentUser'
+import getSuggestedUsers from './hooks/getSuggestedUser'
 export const serverUrl = "http://localhost:3000"
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   redux me changes ke liye use dispatch hook kause   hota hai aur dats access karne ke liye useselector ka use krte hai
   */
  getCurrentUser()
+ getSuggestedUsers()
  const {userData } = useSelector(state=>state.user)
 
   return (
