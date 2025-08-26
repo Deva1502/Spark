@@ -12,7 +12,7 @@ app.use(express.json())
 
 //middleware
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:['http://localhost:5173', 'https://spark-black-ten.vercel.app'],
     credentials:true
 }))
 app.use(cookieParser());
