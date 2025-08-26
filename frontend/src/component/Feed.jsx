@@ -2,6 +2,7 @@ import React from "react";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import spark from "../assets/logo.png";
 import StoryCard from "./StoryCard";
+import Nav from "./Nav.jsx"
 
 const Feed = () => {
   return (
@@ -28,7 +29,9 @@ const Feed = () => {
       </div>
 
       {/* post area */}
-       
+       <div className = " w-full min-h-[140vh] flex flex-col items-center gap-[20px] p-[20px] pt-[40px] bg-white rounded-t-2xl relative pb-[120px] ">
+    <Nav/>
+       </div>
     </div>
   );
 };

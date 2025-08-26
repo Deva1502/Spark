@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { suggestedUsers } from "../../../backend/controllers/user.controller";
-import { set } from "mongoose";
 
 const userSlice = createSlice({
   name: "user",
