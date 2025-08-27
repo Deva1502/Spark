@@ -8,10 +8,12 @@ import axios from "axios";
 import { setUserData } from "../redux/userSlice";
 import { serverUrl } from "../App";
 import OtherUser from "./OtherUser";
+import { useNavigate } from "react-router-dom";
 
 const LeftHome = () => {
   const { userData, suggestedUsers } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleLogout = async()=>{
     try {
         const res  = await axios.get(`${serverUrl}/api/auth/signout`,{withCredentials:true})
@@ -35,7 +37,7 @@ const LeftHome = () => {
             <img
               src={userData.profileImage || dp}
               alt=""
-              className="w-[50px] object-cover rounded-full "
+              className="w-[50px] object-cover rounded-full cursor-pointer " onClick={() => navigate(`/profile/${userData?.userName}`)}
             />
           </div>
           <div>

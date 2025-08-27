@@ -6,6 +6,7 @@ const userSlice = createSlice({
     //ye batata hai ki initially kya value hamne rakhi thi
     userData: null,
     suggestedUsers: null,
+    profileData: null,
   },
   reducers: {
     // This is a reducer function in Redux, specifically designed to update the userData state property.
@@ -17,8 +18,11 @@ const userSlice = createSlice({
     setSuggestedUsers: (state, action) => {
       state.suggestedUsers = action.payload;
     },
+    setProfileData: (state, action) => {
+      state.profileData = action.payload;
+    },
   },
 });
 
-export const { setUserData, setSuggestedUsers } = userSlice.actions;
+export const { setUserData, setSuggestedUsers, setProfileData } = userSlice.actions;
 export default userSlice.reducer;
