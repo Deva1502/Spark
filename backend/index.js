@@ -7,6 +7,7 @@ import cors from "cors"
 import authRouter from "./route/auth.route.js"
 import userRouter from "./route/user.routes.js"
 import postRouter from "./route/post.routes.js"
+import reelRouter from "./route/reel.routes.js"
 dotenv.config()
 app.use(express.json())
 
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRouter)
 app.use("/api/user", userRouter)
 app.use("/api/post", postRouter)
+app.use("/api/reel", reelRouter)
 
 app.get("/", (req, res) => {
     res.send("Hello World")

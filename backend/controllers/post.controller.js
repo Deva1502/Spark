@@ -37,7 +37,7 @@ export const uploadPost = async (req, res) => {
 
 export const getAllPosts = async (req, res) => {
   try {
-    const posts = await Post.find({ author: req.userId }).populate(
+    const posts = await Post.find({}).populate(
       "author",
       "name userName profileImage"
     );
